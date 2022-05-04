@@ -1,28 +1,27 @@
-#include <iostream>
+#include<iostream>
 using namespace std;
 
+void printArray(int arr[]){
+    //Since it is pass by reference, the size of the array should also be passed.
+    //or use int* arr
+    cout << "Size in function " << sizeof(arr) << endl;
+    int n = sizeof(arr)/sizeof(int);
+    arr[0] = 100;
+    //Since it is pass by ref, both the outputs will change.
+    for(int i =0; i<n; i++){
+        cout << arr[i] << endl;
+    }
+    
+}
 int main(){
+    int arr[] = {1,2,3,4,5,6,7};
+    int n = sizeof(arr)/sizeof(int);
+    printArray(arr);
     
-    int n;
-    cout << "Enter Size: ";
-    cin >> n;
-    int A[n];
-    //int A[n] = {0,2,3,4,5} will throw error
-    for(int i = 0; i<n; i++){
-        A[i] = i*i;
+    cout << "Size in main " << sizeof(arr) << endl;
+    for(int i =0; i<n; i++){
+        cout << arr[i] << endl;
     }
-    //4 Bytes for int
-    cout << sizeof(A) << endl;
     
-    for(int i =0; i< n; i++){
-        cout << A[i] << " ";
-    }
-    cout << endl;
-    
-    //C++
-    for(int x:A){
-        cout << x << " ";
-    }
-    cout << endl;
     return 0;
 }
