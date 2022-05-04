@@ -1,27 +1,25 @@
 #include<iostream>
 using namespace std;
 
-void printArray(int arr[]){
-    //Since it is pass by reference, the size of the array should also be passed.
-    //or use int* arr
-    cout << "Size in function " << sizeof(arr) << endl;
-    int n = sizeof(arr)/sizeof(int);
-    arr[0] = 100;
-    //Since it is pass by ref, both the outputs will change.
-    for(int i =0; i<n; i++){
-        cout << arr[i] << endl;
+int linearSearch(int arr[], int n, int key){
+    for(int i=0; i<n; i++){
+        if(arr[i] == key){
+            return i;
+        }
     }
-    
+    return -1;
 }
+
 int main(){
-    int arr[] = {1,2,3,4,5,6,7};
+    int arr[] = {10,9,6,3,7,2,9,7};
     int n = sizeof(arr)/sizeof(int);
-    printArray(arr);
     
-    cout << "Size in main " << sizeof(arr) << endl;
-    for(int i =0; i<n; i++){
-        cout << arr[i] << endl;
+    int key;
+    cin >> key;
+    if(linearSearch(arr, n, key) != -1){
+        cout << "Key : " << key << " found at position: " << linearSearch(arr, n, key) << "." << endl;
+    }else{
+        cout << "Key: " << key << ", not found." << endl;
     }
-    
-    return 0;
+
 }
