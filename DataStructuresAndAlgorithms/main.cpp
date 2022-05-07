@@ -1,25 +1,32 @@
 #include<iostream>
 using namespace std;
 
-int linearSearch(int arr[], int n, int key){
-    for(int i=0; i<n; i++){
-        if(arr[i] == key){
-            return i;
+int binarySearch(int arr[], int n, int key){
+    int s = 0;
+    int e = n-1;
+    while(s<=e){
+        int mid = (s+e)/2;
+        if(arr[mid] == key){
+            return mid;
+        }else if(arr[mid] > key){
+            e = mid-1;
+        }else if(arr[mid] < key){
+            s = mid+1;
         }
     }
+    
     return -1;
 }
-
 int main(){
-    int arr[] = {10,9,6,3,7,2,9,7};
-    int n = sizeof(arr)/sizeof(int);
-    
+    int arr[] = {1,3,5,9,13,16,17,22,27,29};
     int key;
+    cout << "Enter the key: ";
     cin >> key;
-    if(linearSearch(arr, n, key) != -1){
-        cout << "Key : " << key << " found at position: " << linearSearch(arr, n, key) << "." << endl;
+    int ans = binarySearch(arr, 10, key);
+    if(ans != -1){
+        cout << "Key found at position: " << binarySearch(arr, 10, key) << endl;
     }else{
-        cout << "Key: " << key << ", not found." << endl;
+        cout << "Key Not Found" << endl;
     }
-
+    
 }
