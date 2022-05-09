@@ -22,3 +22,6 @@ void printArray(int arr[], int n){
     cout << endl;
 }
 
+void printSet(int a, int b){
+    cout << "(" << a << "," << b << ")";
+}

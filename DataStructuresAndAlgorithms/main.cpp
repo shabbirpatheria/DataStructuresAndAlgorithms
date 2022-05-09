@@ -3,17 +3,21 @@
 
 using namespace std;
 
-void printAllPairs(int arr[], int n){
-    for(int i = 0; i<n; i++){
-        for(int j = i+1; j<n ;j++){
-            cout << "(" << arr[i] << "," << arr[j] << "), ";
+void printSubarrays(int arr[], int n){
+    for(int i =0 ; i<n; i++){
+        for(int j =i; j<n; j++){
+            //Gives all the subarray sets
+            for(int k = i; k<=j ; k++){
+                cout << arr[k] << ", ";
+            }
+            cout << endl;
         }
+        cout << endl;
     }
-    cout << endl;
 }
 
 int main(){
     int arr[] = {1,2,3,4,5,6,7,8,9,10};
     int n = sizeof(arr)/sizeof(int);
-    printAllPairs(arr,n);
+    printSubarrays(arr, n);
 }
