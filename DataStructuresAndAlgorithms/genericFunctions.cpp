@@ -1,0 +1,24 @@
+//
+//  genericFunctions.cpp
+//  DataStructuresAndAlgorithms
+//
+//  Created by Shabbir Patheria on 09/05/22.
+//
+
+#include "genericFunctions.hpp"
+#include<iostream>
+using namespace std;
+void swap(int& a, int& b){
+    int temp = a;
+    a = b;
+    b = temp;
+}
+
+void printArray(int arr[], int n){
+    cout << "Elements of the array are: ";
+    for(int i =0; i<n; i++){
+        cout << arr[i] << ", ";
+    }
+    cout << endl;
+}
+
