@@ -25,3 +25,10 @@ void printArray(int arr[], int n){
 void printSet(int a, int b){
     cout << "(" << a << "," << b << ")";
 }
+
+void printVector(vector<int> a){
+    for(auto i:a){
+        cout << i << ", ";
+    }
+    cout << endl;
+}
