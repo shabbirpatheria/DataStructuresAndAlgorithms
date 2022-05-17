@@ -1,19 +1,40 @@
-#include<iostream>
+// Optimized implementation of Bubble sort
+#include <iostream>
 #include "genericFunctions.hpp"
 using namespace std;
 
-void bubbleSort(int a[], int n){
-    for(int i = 1; i <= n-1; i++){
-        for(int j = 0; j <= n-i-1; j++){
-            if(a[j] > a[j+1]){
-                swap(a[j],a[j+1]);
-            }
+// An optimized version of Bubble Sort
+void bubbleSort(int arr[], int n)
+{
+int i, j;
+bool swapped;
+for (i = 0; i < n-1; i++)
+{
+    swapped = false;
+    for (j = 0; j < n-i-1; j++)
+    {
+        if (arr[j] > arr[j+1])
+        {
+        swap(arr[j], arr[j+1]);
+        swapped = true;
         }
     }
+
+    // IF no two elements were swapped
+    // by inner loop, then break
+    if (swapped == false)
+        break;
 }
-int main(){
-    int arr[] = {2,4,1,3,5,9,7,6,0};
-    int size = sizeof(arr)/sizeof(int);
-    bubbleSort(arr, size);
-    printArray(arr,size);
+}
+
+
+// Driver program to test above functions
+int main()
+{
+    int arr[] = {5, 3, 1, 9, 8, 2, 4, 7};
+    int N = sizeof(arr)/sizeof(arr[0]);
+    bubbleSort(arr, N);
+    cout <<"Sorted array: \n";
+    printArray(arr, N);
+    return 0;
 }
