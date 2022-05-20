@@ -8,19 +8,14 @@ void insertionSort(int arr[], int n){
     int key;
     for(int i =1; i <n; i++){
         key = arr[i];
-        for(int j = i-1; j >=0; j--){
-            if(key > arr[j]){
-                arr[j+1] = key;
-                break;
-            }else{
-                arr[j+1] = arr[j];
-                arr[j] = key;
-            }
+        int j =i-1;
+        while(j >=0 && arr[j] > key){
+            arr[j+1] = arr[j];
+            j--;
         }
+        arr[j+1] = key;
     }
 }
-
-
 int main()
 {
     int arr[] = {5, 3, 1, 9, 8, 2, 4, 7};
