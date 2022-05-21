@@ -2,25 +2,25 @@
 #include "genericFunctions.hpp"
 using namespace std;
 
-//Insertion Sort
 
-void insertionSort(int arr[], int n){
-    int key;
-    for(int i =1; i <n; i++){
-        key = arr[i];
-        int j =i-1;
-        while(j >=0 && arr[j] > key){
-            arr[j+1] = arr[j];
-            j--;
+//Selection Sort
+void selectionSort(int arr[],int n){
+    for(int i =0; i<n; i++){
+        int minimum = INT_MAX;
+        for(int j = i; j<n; j++){
+            if(arr[j] < minimum){
+                minimum = arr[j];
+                swap(arr[i],arr[j]);
+            }
         }
-        arr[j+1] = key;
     }
 }
+
 int main()
 {
-    int arr[] = {5, 3, 1, 9, 8, 2, 4, 7};
+    int arr[] = {5, 3, 1, 9, 8, 2, 4, 6,7};
     int N = sizeof(arr)/sizeof(arr[0]);
-    insertionSort(arr, N);
+    selectionSort(arr, N);
     cout <<"Sorted array: \n";
     printArray(arr, N);
     return 0;
