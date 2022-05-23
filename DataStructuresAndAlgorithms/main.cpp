@@ -1,27 +1,27 @@
-#include <iostream>
+#include<iostream>
 #include "genericFunctions.hpp"
+#include<algorithm>
 using namespace std;
 
-
-//Selection Sort
-void selectionSort(int arr[],int n){
-    for(int i =0; i<n; i++){
-        int minimum = INT_MAX;
-        for(int j = i; j<n; j++){
-            if(arr[j] < minimum){
-                minimum = arr[j];
-                swap(arr[i],arr[j]);
-            }
-        }
-    }
+bool compare(int a, int b){
+    cout << "Comparing " << a << " and " << b << "." << endl;
+    return a>b;
 }
 
-int main()
-{
-    int arr[] = {5, 3, 1, 9, 8, 2, 4, 6,7};
-    int N = sizeof(arr)/sizeof(arr[0]);
-    selectionSort(arr, N);
-    cout <<"Sorted array: \n";
-    printArray(arr, N);
+int main(){
+    int arr[] = {3,5,2,1,6,9,8,7};
+    int n = sizeof(arr)/sizeof(int);
+    sort(arr,arr+n,compare);
+    //compare is NOT a function call, instead passing a function as a perimeter
+    //Can also use 'greater<int>()' instead of compare
+    
+    cout << "Sorted Array (in Reverse): " << endl;
+    printArray(arr,n);
+    
+    reverse(arr, arr+n);
+    cout << "Reversed Array: " << endl;
+    printArray(arr, n);
+    
     return 0;
 }
+
