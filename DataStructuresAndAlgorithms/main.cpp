@@ -1,33 +1,24 @@
 #include<iostream>
+#include<cstring>
 #include "genericFunctions.hpp"
 using namespace std;
-void countingSort(int a[], int n){
-    //largest element
-    int largest = 0;
-    for(int i = 0; i<n; i++){
-        largest = max(largest, a[n]);
-    }
-    //Create a count array/vector
-    vector<int> freq(largest+1,0);
-    for(int i=0; i<n; i++){
-        freq[a[i]]++;
-    }
-    
-    //Put back the elements
-    int j = 0;
-    for(int i=0; i<largest; i++){
-        while(freq[i] > 0){
-            a[j] = i;
-            freq[i]--;
-            j++;
-        }
-    }
-    return;
-}
-
 int main(){
-    int arr[] = {2,3,1,6,5,4,9,7,8};
-    int n = sizeof(arr)/sizeof(int);
-    countingSort(arr,n);
-    printArray(arr, n);
+    char a1[100];
+    char a2[100] = {'a','b','c'}; //Wrong
+    char a3[100] = {'a','b','c','\0'}; //Right
+    char a4[100] = "abc";
+    
+    char a[] = {'a','b','c','d','e','\0'}; //Always do this
+    cout << a << endl;
+    
+    char b[] = "abcdef";
+    cout << b << endl;
+    
+    cout << "Strlen(): " << strlen(a) << endl;
+    cout << "Sizeof(): " << sizeof(a) << endl;
+    //Because of null character
+    
+    char c[100];
+    cin >> c;
+    cout << "Input String: " << c << endl;
 }
