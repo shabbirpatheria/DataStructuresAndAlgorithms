@@ -1,24 +1,23 @@
-#include<iostream>
-#include<cstring>
-#include "genericFunctions.hpp"
+// A C++ program to show that we use template and
+// reference to find size of any type array parameter
+#include <iostream>
 using namespace std;
-int main(){
-    char a1[100];
-    char a2[100] = {'a','b','c'}; //Wrong
-    char a3[100] = {'a','b','c','\0'}; //Right
-    char a4[100] = "abc";
-    
-    char a[] = {'a','b','c','d','e','\0'}; //Always do this
-    cout << a << endl;
-    
-    char b[] = "abcdef";
-    cout << b << endl;
-    
-    cout << "Strlen(): " << strlen(a) << endl;
-    cout << "Sizeof(): " << sizeof(a) << endl;
-    //Because of null character
-    
-    char c[100];
-    cin >> c;
-    cout << "Input String: " << c << endl;
+
+template <typename T, size_t n>
+void findSize(T (&arr)[n])
+{
+    cout << sizeof(T) * n << endl;
 }
+
+int main()
+{
+    int a[10];
+    cout << sizeof(a) << " ";
+    findSize(a);
+
+    float f[20];
+    cout << sizeof(f) << " ";
+    findSize(f);
+    return 0;
+}
+
